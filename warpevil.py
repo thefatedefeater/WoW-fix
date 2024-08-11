@@ -31,6 +31,36 @@ temp={
         }
   ]
 }
+
+temp2={
+  "outbounds": 
+  [
+
+
+            
+        {
+            "type": "wireguard",
+            "server": "",
+            "server_port": 0,
+            "local_address": [
+                "172.16.0.2/32",
+                ""
+            ],
+            "private_key": "",
+            "peer_public_key": "",
+            "reserved": [],
+            "mtu": 1300,
+            "workers": 2,
+            "detour": "",
+            "tag": "",
+            "fake_packets_mode": "m4"
+        }
+  ]
+}
+
+
+
+
     
 def byte_to_base64(myb):
     return base64.b64encode(myb).decode('utf-8')
@@ -190,7 +220,23 @@ def toSingBox(tag, clean_ip, detour):
     wg['detour'] = detour
     wg['tag'] = tag
     return wg
+def toSingBox2(tag, clean_ip, detour):
+    print("Generating Warp Conf")
 
+
+    data = bind_keys()
+    wg = temp2["outbounds"][0]
+    wg['private_key']=data[1]
+    wg['peer_public_key']=data[3]
+    wg['reserved']=data[2]
+    wg['local_address'][1]=data[0]
+    wg['server'] = clean_ip.split(':')[0]
+    wg['server_port'] = int(clean_ip.split(':')[1])
+    wg['mtu'] = 1300
+    wg['workers'] = 2
+    wg['detour'] = detour
+    wg['tag'] = tag
+    return wg
 
 
 def export_SingBox(t_ips, arch):
@@ -203,7 +249,7 @@ def export_SingBox(t_ips, arch):
 
     main_wg = toSingBox('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(1, main_wg)
-    wow_wg = toSingBox('WARP-WOW', t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox2('WARP-WOW', t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(2, wow_wg)
 
     with open('sing-box.json', 'w') as f:
@@ -211,6 +257,7 @@ def export_SingBox(t_ips, arch):
 
 
     os.remove("warp-go")
+
 
 
 def main(script_dir):
