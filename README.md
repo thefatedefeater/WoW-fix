@@ -9,11 +9,6 @@ https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/subwarp/warp
 ![rand](https://rand-xyz.now.sh/api/hello)
 
 ```
-https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/warp.json
-```
-![rand](https://rand-xyz.now.sh/api/hello)
-
-```
 https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/sing-box.json
 ```
 ![rand](https://rand-xyz.now.sh/api/hello)
