@@ -82,7 +82,7 @@ def warp_ip():
     creation_time = os.path.getctime(result_path)
     formatted_time = datetime.datetime.fromtimestamp(creation_time).strftime("%Y-%m-%d %H:%M:%S")
     for i, ip in enumerate(Bestip):
-        config_prefix = f'warp://{Bestip[0]}?ifp=1-3&ifpm=m4#@arshiacomplus🇮🇷&&detour=warp://{Bestip[1]}?ifp=1-3&ifpm=m6#arshiacomplus🇩🇪WoW\nwarp://{Bestip[0]}?ifp=2-4&ifpm=m3#@arshiacomplus🇮🇷&&detour=warp://{Bestip[1]}?ifp=1-3&ifpm=m6#arshiacomplus🇩🇪WoW\nwarp://@auto6/?ifp=1-3&ifpm=m4#LocalV6&&detour=warp://@auto4/?ifp=1-3&ifpm=m6#WoWV6\nwarp://@auto6/?ifp=1-2&ifpm=m5#LocalV6&&detour=warp://@auto6/?ifp=2-4&ifpm=m4#WoWV6'
+        config_prefix = f'warp://{Bestip[0]}?ifp=1-3&ifpm=m4#@arshiacomplus🇮🇷&&detour=warp://{Bestip[1]}?ifp=1-3&ifpm=m6#arshiacomplus🇩🇪WoW\nwarp://{Bestip[0]}?ifp=2-4&ifpm=m3#@arshiacomplus🇮🇷&&detour=warp://{Bestip[1]}?ifp=1-3&ifpm=m6#arshiacomplus🇩🇪WoW\nwarp://@auto6/?ifp=1-3&ifpm=m4#LocalV6&&detour=warp://@auto4/?ifp=1-3&ifpm=m6#WoWV4_v6'
     return config_prefix, formatted_time
 
 title = "//profile-title: base64:" + base64.b64encode('Warp2'.encode('utf-8')).decode('utf-8') + "\n"
