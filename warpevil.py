@@ -1,5 +1,37 @@
 import platform, subprocess, os, datetime, base64, json
 
+temp=        {
+            "type": "wireguard",
+            "server": "162.159.195.161",
+            "server_port": 955,
+            "local_address": [
+                "172.16.0.2/32",
+                "2606:4700:110:8458:5c33:4e03:77d3:b5e3/128"
+            ],
+            "private_key": "",
+            "peer_public_key": "",
+            "reserved": [],
+            "mtu": 1300,
+            "workers": 2,
+            "detour": "direct",
+            "tag": "WARP-MAIN"
+        },
+        {
+            "type": "wireguard",
+            "server": "162.159.195.190",
+            "server_port": 987,
+            "local_address": [
+                "172.16.0.2/32",
+                "2606:4700:110:8a83:ecfd:99b4:8024:ef84/128"
+            ],
+            "private_key": "",
+            "peer_public_key": "",
+            "reserved": [],
+            "mtu": 1300,
+            "workers": 2,
+            "detour": "WARP-MAIN",
+            "tag": "WARP-WOW"
+        }
 
 def arch_suffix():
     machine = platform.machine().lower()
