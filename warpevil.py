@@ -6,26 +6,28 @@ temp={
   "outbounds": 
   [
 
-    {
-    "type": "wireguard",
-    "tag": "",
-    "detour": "",
-    "local_address": [
-        "172.16.0.2/32",
-        ""
-    ],
-    "private_key": "",
-    "peer_public_key": "",
-    "server": "",
-    "server_port": 0,
-    "reserved": [],
 
-    "mtu": 1280,
-    "fake_packets":"1-3",
-    "fake_packets_size":"10-30",
-    "fake_packets_delay":"10-30",
-    "fake_packets_mode":"m4"
-    }
+            
+        {
+            "type": "wireguard",
+            "server": "",
+            "server_port": 0,
+            "local_address": [
+                "172.16.0.2/32",
+                ""
+            ],
+            "private_key": "",
+            "peer_public_key": "",
+            "reserved": [],
+            "mtu": 1300,
+            "workers": 2,
+            "detour": "",
+            "tag": ""
+            "fake_packets": "1-3",
+            "fake_packets_size": "10-30",
+            "fake_packets_delay": "10-30",
+            "fake_packets_mode": "m4"
+        }
   ]
 }
     
