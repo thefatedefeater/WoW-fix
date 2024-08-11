@@ -206,8 +206,7 @@ def export_SingBox(t_ips, arch):
     with open('sing-box.json', 'w') as f:
         f.write(json.dumps(data, indent=4))
 
-    os.remove("warp.conf")
-    os.remove("proxy.json")
+
     os.remove("warp-go")
 
 
