@@ -23,7 +23,7 @@ temp={
             "mtu": 1300,
             "workers": 2,
             "detour": "",
-            "tag": ""
+            "tag": "",
             "fake_packets": "1-3",
             "fake_packets_size": "10-30",
             "fake_packets_delay": "10-30",
