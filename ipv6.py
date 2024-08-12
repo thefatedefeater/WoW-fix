@@ -103,5 +103,6 @@ for i in range(2):
     best_ips2+=main_v6(best_ips2)
 with open('result.csv' , "w") as f:
     for k in best_ips2:
+        print(k)
         f.write(k+"\n")
 
