@@ -99,11 +99,15 @@ def main_v6(best_ips2):
     print(best_ip_mix)
     return  best_ip_mix
 best_ips2=[]
+t5=2
 for i in range(2):
     best_ips2+=main_v6(best_ips2)
 with open('result.csv' , "w") as f:
-    for k in best_ips2:
-        print(k)
-        print('go')
-        f.write(k+"\n")
+    for k in range(len(best_ips2)-1):
+        if t % 2 ==0:
+            f.write(k+":")
+        else:
+            f.write(str(k)+"\n")
+        
+        t5+=1
 
