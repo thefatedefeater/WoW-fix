@@ -104,7 +104,7 @@ t5=2
 for i in range(2):
     best_ips2+=main_v6(best_ips2)
 with open('result.csv' , "w") as f:
-    for k in range(len(best_ips2)-1):
+    for k in range(len(best_ips2)):
         if t5 % 2 ==0:
 
             f.write(str(best_ips2[k])+":")
