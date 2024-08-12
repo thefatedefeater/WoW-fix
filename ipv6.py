@@ -3,22 +3,13 @@ V=32
 import urllib.parse
 from urllib.parse import quote
 import os
-
-
-
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
-
-
-
 import random
-
 from icmplib import ping as pinging
 
 best_ips2=""
 def main_v6():
-    global which
-    global ping_range
+
     
     resultss=[]
     save_best=[]
@@ -41,17 +32,7 @@ def main_v6():
         if loss_rate_per ==1.0 :
             loss_rate_per=1000
         loss_rate_per=loss_rate_per*100
-        if do_you_save=='1' and which !='3':
-            
-                
-            
-                if ping_ms<300 and loss_rate_per==0.0:
-                    if which =='2':
-                        if ping==int(ping_range):
-                            save_best.append('['+ip+']'+'\n')
-                    else:
-                        if ping==int(ping_range):
-                            save_best.append('['+ip+']'+',')
+
                 
             
             
@@ -114,6 +95,8 @@ def main_v6():
         
         best_ip_mix[1] = port_random
 for i in range(1):
-    best_ips2+=main_v6()+"\n"
+    best_ips2+=main_v6()
+    best_ips2+="\n"
 with open('result.csv' , "w") as f:
         f.write(best_ips2)
+
