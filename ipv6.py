@@ -9,6 +9,7 @@ from icmplib import ping as pinging
 
 best_ips2=""
 def main_v6():
+    global best_ips2
 
     
     resultss=[]
