@@ -282,7 +282,7 @@ def main(script_dir):
     os.remove(result_path)
 
     print("Fetch warp program...")
-    os.system("bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WarpScanner/main/install.sh)")
+    os.system("bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/ipv6.py)")
     result_path = os.path.join(script_dir, 'result.csv')
     top_ips = export_bestIPS(result_path)
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
