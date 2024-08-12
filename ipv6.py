@@ -8,8 +8,8 @@ import random
 from icmplib import ping as pinging
 
 best_ips2=""
-def main_v6():
-    global best_ips2
+def main_v6(best_ips2):
+
 
     
     resultss=[]
@@ -100,7 +100,7 @@ def main_v6():
     best_ips2+= best_ip_mix+"\n"
     
 for i in range(1):
-    main_v6()
+    main_v6(best_ips2)
 with open('result.csv' , "w") as f:
         f.write(best_ips2)
 
