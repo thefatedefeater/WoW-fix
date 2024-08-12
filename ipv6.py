@@ -103,7 +103,7 @@ best_ips2=[]
 t5=2
 for i in range(2):
     best_ips2+=main_v6(best_ips2)
-with open('/home/runner/work/WoW-fix/WoW-fix/result.csv' , "w") as f:
+with open('WoW-fix/result.csv' , "w") as f:
     for k in range(len(best_ips2)):
         if t5 % 2 ==0:
 
