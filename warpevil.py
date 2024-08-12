@@ -298,7 +298,7 @@ def main(script_dir):
     os.remove("warp")
     os.remove(result_path)
 
-    print("Fetch warp program...")
+    print("Fetch warp program2...")
     os.system("bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/install.sh)")
     result_path = os.path.join(script_dir, 'result.csv')
     top_ips = export_bestIPS(result_path)
