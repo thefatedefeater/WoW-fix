@@ -94,6 +94,7 @@ def main_v6():
                  
         
         best_ip_mix[1] = port_random
+    return best_ip_mix
 for i in range(1):
     best_ips2+=main_v6()
     best_ips2+="\n"
