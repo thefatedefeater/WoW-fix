@@ -278,11 +278,17 @@ def main(script_dir):
     top_ips = export_bestIPS(result_path)
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
     export_SingBox(t_ips=top_ips, arch=arch)
-
     os.remove("warp")
     os.remove(result_path)
 
-
+    print("Fetch warp program...")
+    subprocess.run(["bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WarpScanner/main/install.sh)"])
+    result_path = os.path.join(script_dir, 'result.csv')
+    top_ips = export_bestIPS(result_path)
+    export_Hiddify(t_ips=top_ips, f_ips=result_path)
+    export_SingBox(t_ips=top_ips, arch=arch)
+    os.remove("warp")
+    os.remove(result_path)
 if __name__ == '__main__':
     script_directory = os.path.dirname(__file__)
     main(script_directory)
