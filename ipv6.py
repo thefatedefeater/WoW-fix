@@ -104,5 +104,6 @@ for i in range(2):
 with open('result.csv' , "w") as f:
     for k in best_ips2:
         print(k)
+        print('go')
         f.write(k+"\n")
 
