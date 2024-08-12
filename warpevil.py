@@ -189,7 +189,7 @@ def export_bestIPS(path):
 def export_Hiddify(t_ips, f_ips):
     creation_time = os.path.getctime(f_ips)
     formatted_time = datetime.datetime.fromtimestamp(creation_time).strftime("%Y-%m-%d %H:%M:%S")
-    config_prefix = f'warp://{t_ips[0]}?ifp=10-20&ifps=20-60&ifpd=5-10#𓄂𓆃-IR&&detour=warp://{t_ips[1]}?ifp=10-20&ifps=20-60&ifpd=5-10#WoW-ÐΛɌ₭ᑎΞ𐒡𐒡-De'
+    config_prefix = f'warp://{t_ips[0]}?ifp=10-20&ifps=20-60&ifpd=5-10#-IR&&detour=warp://{t_ips[1]}?ifp=10-20&ifps=20-60&ifpd=5-10#WoW-arshiacomplus-De'
 
     title = "//profile-title: base64:" + base64.b64encode('𓄂𓆃 ÐΛɌ₭ᑎΞ𐒡𐒡 '.encode('utf-8')).decode(
         'utf-8') + "\n"
@@ -256,7 +256,24 @@ def export_SingBox(t_ips, arch):
 
 
     os.remove("warp-go")
+def export_SingBox2(t_ips, arch):
+    with open('edge/assets/singbox-template.json', 'r') as f:
+        data = json.load(f)
 
+    warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
+    subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
+    os.chmod("warp-go", 0o755)
+
+    main_wg = toSingBox('WARP-MAIN', t_ips[0], "direct")
+    data["outbounds"].insert(3, main_wg)
+    wow_wg = toSingBox2('WARP-WOW', t_ips[1], "WARP-MAIN")
+    data["outbounds"].insert(4, wow_wg)
+
+    with open('sing-box.json', 'w') as f:
+        f.write(json.dumps(data, indent=4))
+
+
+    os.remove("warp-go")
 
 
 def main(script_dir):
@@ -282,11 +299,11 @@ def main(script_dir):
     os.remove(result_path)
 
     print("Fetch warp program...")
-    os.system("bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/ipv6.py)")
+    os.system("bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/install.sh)")
     result_path = os.path.join(script_dir, 'result.csv')
     top_ips = export_bestIPS(result_path)
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
-    export_SingBox(t_ips=top_ips, arch=arch)
+    export_SingBox2(t_ips=top_ips, arch=arch)
     os.remove("warp")
     os.remove(result_path)
 if __name__ == '__main__':
