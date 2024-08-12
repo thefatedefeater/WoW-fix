@@ -99,7 +99,7 @@ def main_v6(best_ips2):
     print(best_ip_mix)
     return  best_ip_mix+"\n"
 best_ips2=""
-for i in range(1):
+for i in range(2):
     best_ips2+=main_v6(best_ips2)
 with open('result.csv' , "w") as f:
         f.write(best_ips2)
