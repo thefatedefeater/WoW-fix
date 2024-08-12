@@ -192,7 +192,7 @@ def export_Hiddify(t_ips, f_ips):
     formatted_time = datetime.datetime.fromtimestamp(creation_time).strftime("%Y-%m-%d %H:%M:%S")
     config_prefix = f'warp://{t_ips[0]}?ifp=10-20&ifps=20-60&ifpd=5-10#-IR&&detour=warp://{t_ips[1]}?ifp=10-20&ifps=20-60&ifpd=5-10#WoW-arshiacomplus-De'
 
-    title = "//profile-title: base64:" + base64.b64encode('𓄂𓆃 ÐΛɌ₭ᑎΞ𐒡𐒡 '.encode('utf-8')).decode(
+    title = "//profile-title: base64:" + base64.b64encode('𓄂𓆃 arshiacomplus '.encode('utf-8')).decode(
         'utf-8') + "\n"
     update_interval = "//profile-update-interval: 1\n"
     sub_info = "//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531\n"
