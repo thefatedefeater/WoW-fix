@@ -97,10 +97,11 @@ def main_v6(best_ips2):
         best_ip_mix[1] = port_random
 
     print(best_ip_mix)
-    return  best_ip_mix+"\n"
-best_ips2=""
+    return  best_ip_mix
+best_ips2=[]
 for i in range(2):
     best_ips2+=main_v6(best_ips2)
 with open('result.csv' , "w") as f:
-        f.write(best_ips2)
+    for k in range(len(best_ips2)-1):
+        f.write(k+"\n")
 
