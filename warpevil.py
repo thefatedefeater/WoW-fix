@@ -297,7 +297,7 @@ def main(script_dir):
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
     export_SingBox(t_ips=top_ips, arch=arch)
     os.remove("warp")
-    os.remove(result_path)
+
 
     print("Fetch warp program2...")
     os.system("bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/install.sh)")
@@ -306,7 +306,7 @@ def main(script_dir):
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
     export_SingBox2(t_ips=top_ips, arch=arch)
     os.remove("warp")
-    os.remove(result_path)
+
 if __name__ == '__main__':
     script_directory = os.path.dirname(__file__)
     main(script_directory)
