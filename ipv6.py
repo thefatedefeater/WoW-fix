@@ -15,7 +15,7 @@ import random
 
 from icmplib import ping as pinging
 
-
+best_ips2=""
 def main_v6():
     global which
     global ping_range
@@ -113,5 +113,7 @@ def main_v6():
                  
         
         best_ip_mix[1] = port_random
-    with open('result.csv' , "w") as f:
-        f.write(best_ip_mix)
+for i in range(1):
+    best_ips2+=main_v6()+"\n"
+with open('result.csv' , "w") as f:
+        f.write(best_ips2)
