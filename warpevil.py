@@ -301,7 +301,7 @@ def main(script_dir):
 
     print("Fetch warp program2...")
     os.system("bash <(curl -fsSL https://raw.githubusercontent.com/arshiacomplus/WoW-fix/main/install.sh)")
-    result_path = os.path.join(script_dir, 'result.csv')
+    result_path = os.path.join(script_dir, 'result2.csv')
     top_ips = export_bestIPS(result_path)
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
     export_SingBox2(t_ips=top_ips, arch=arch)
