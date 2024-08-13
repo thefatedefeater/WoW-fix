@@ -233,6 +233,23 @@ def toSingBox1(tag, clean_ip, detour):
     wg['detour'] = detour
     wg['tag'] = tag
     return wg
+def toSingBox11(tag, clean_ip, detour):
+    print("Generating Warp Conf")
+
+
+    data = bind_keys()
+    wg = temp2["outbounds"][0]
+    wg['private_key']=data[1]
+    wg['peer_public_key']=data[3]
+    wg['reserved']=data[2]
+    wg['local_address'][1]=data[0]
+    wg['server'] = clean_ip.split(':')[0]
+    wg['server_port'] = int(clean_ip.split(':')[1])
+    wg['mtu'] = 1300
+    wg['workers'] = 2
+    wg['detour'] = detour
+    wg['tag'] = tag
+    return wg
 def toSingBox2(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
@@ -281,7 +298,7 @@ def export_SingBox(t_ips, arch):
 
     main_wg = toSingBox1('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(1, main_wg)
-    wow_wg = toSingBox1('WARP-WOW', t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox11('WARP-WOW', t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(2, wow_wg)
 
     with open('sing-box.json', 'w') as f:
