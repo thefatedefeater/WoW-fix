@@ -261,7 +261,7 @@ def toSingBox2(tag, clean_ip, detour):
     wg['reserved']=data[2]
     wg['local_address'][1]=data[0]
     wg['server'] = clean_ip.split("]")[0]+"]"
-    wg['server_port'] = clean_ip[::-1].split(":")[0][::-1]
+    wg['server_port'] = int(clean_ip[::-1].split(":")[0][::-1])
     wg['mtu'] = 1300
     wg['workers'] = 2
     wg['detour'] = detour
@@ -280,7 +280,7 @@ def toSingBox22(tag, clean_ip, detour):
     wg['local_address'][1]=data[0]
     
     wg['server'] = clean_ip.split("]")[0]+"]"
-    wg['server_port'] = clean_ip[::-1].split(":")[0][::-1]
+    wg['server_port'] = int(clean_ip[::-1].split(":")[0][::-1])
     wg['mtu'] = 1300
     wg['workers'] = 2
     wg['detour'] = detour
