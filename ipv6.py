@@ -86,15 +86,7 @@ def main_v6(best_ips2):
 
         best_ip_mix[1] = port_random
         
-    else:
 
-
-        
-        best_ip_mix[0] = "[" + random_ip + "]"
-
-                 
-        
-        best_ip_mix[1] = port_random
 
     print(best_ip_mix)
     return  best_ip_mix
