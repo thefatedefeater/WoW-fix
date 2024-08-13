@@ -194,7 +194,7 @@ def export_bestIPS2(path):
         for line in csv_file:
             Bestip.append(line)
             c += 1
-            if c == 2:
+            if c == 4:
                 break
 
     print( Bestip),exit()
