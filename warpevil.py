@@ -297,7 +297,7 @@ def main(script_dir):
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
     export_SingBox(t_ips=top_ips, arch=arch)
     top_ips = export_bestIPS("edge/assets/result.csv")
-    export_Hiddify(t_ips=top_ips, f_ips=result_path)
+
     export_SingBox2(t_ips=top_ips, arch=arch)
     os.remove("result.csv")
     os.remove("warp")
