@@ -26,3 +26,11 @@ jobs:
    
     - name: Run script
       run: python ipv6.py
+    - name: Commit and push changes
+      run: |          
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git config credential.helper store
+          git add -A
+          git commit -m "Auto update"
+          git push
