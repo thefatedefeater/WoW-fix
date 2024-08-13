@@ -1,5 +1,3 @@
-V=32
-
 
 import urllib.parse
 from urllib.parse import quote
@@ -8,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import random
 from icmplib import ping as pinging
 
+import platform
 
 def main_v6(best_ips2):
 
