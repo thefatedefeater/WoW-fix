@@ -1,6 +1,10 @@
 name: ipv6
 
-on: [push]
+on:
+  push:
+    branches: [ "main" ]
+  schedule: 
+    - cron: '*/30 * * * *'
 
 jobs:
   build:
@@ -15,6 +19,7 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         python -m pip install --upgrade pip
         pip install ipaddress
         pip install telebot
@@ -32,5 +37,5 @@ jobs:
           git config user.email "<>"
           git config credential.helper store
           git add -A
-          git commit -m "Auto update"
+          git commit -m "Automatic update"
           git push
