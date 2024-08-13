@@ -192,12 +192,12 @@ def export_bestIPS2(path):
         csv_file2=csv_file.readlines()
         c = 0
         for line in csv_file2:
-            Bestip.append(line[:len(line)-2])
+            Bestip.append(line[:len(line)-1])
             c += 1
             if c == 2:
                 break
 
-    print( Bestip),exit()
+    return Bestip
 
 
 def export_Hiddify(t_ips, f_ips):
