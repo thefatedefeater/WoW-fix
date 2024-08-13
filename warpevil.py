@@ -192,7 +192,7 @@ def export_bestIPS2(path):
         csv_file2=csv_file.readlines()
         c = 0
         for line in csv_file2:
-            Bestip.append(line)
+            Bestip.append(line[:len(line)-2])
             c += 1
             if c == 2:
                 break
