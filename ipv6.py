@@ -112,5 +112,7 @@ with open('edge/assets/result.csv' , "w") as f:
             f.write(str(best_ips2[k])+"\n")
         
         t5+=1
+with open('edge/assets/result.csv' , "r") as ff:
+    print(ff.readlines())
 print("saved")
 
