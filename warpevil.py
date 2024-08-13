@@ -282,7 +282,7 @@ def export_SingBox2(t_ips, arch):
     main_wg = toSingBox2('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(3, main_wg)
     wow_wg = toSingBox2('WARP-WOW', t_ips[1], "WARP-MAIN")
-    data["outbounds"].insert(4, wow_wg)
+    data["outbounds"].insert(4, wow_wg)  
 
     with open('sing-boxv6.json', 'w') as f:
         f.write(json.dumps(data, indent=4))
