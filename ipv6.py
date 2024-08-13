@@ -104,7 +104,6 @@ for i in range(2):
     best_ips2+=main_v6(best_ips2)
 with open('edge/assets/result.csv' , "w") as f:
     for k in range(len(best_ips2)):
-        print(str(k))
         if t5 % 2 ==0:
 
             f.write(str(best_ips2[k])+":")
@@ -114,5 +113,5 @@ with open('edge/assets/result.csv' , "w") as f:
         t5+=1
 with open('edge/assets/result.csv' , "r") as ff:
     print(ff.readlines())
-print("saved")
+
 
