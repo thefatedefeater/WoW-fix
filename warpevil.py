@@ -4,7 +4,7 @@ from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
 import requests
    
  
-temp={
+temphi={
   "outbounds": 
   [
 
@@ -32,7 +32,7 @@ temp={
         }
   ]
 }
-temp2={
+temp2hi={
   "outbounds": 
   [
 
@@ -58,6 +58,55 @@ temp2={
   ]
 }
 
+temp={
+  "outbounds": 
+  [
+
+
+            
+        {
+            "type": "wireguard",
+            "server": "",
+            "server_port": 0,
+            "local_address": [
+                "172.16.0.2/32",
+                ""
+            ],
+            "private_key": "",
+            "peer_public_key": "",
+            "reserved": [],
+            "mtu": 1300,
+            "workers": 2,
+            "detour": "",
+            "tag": "",
+            "fake_packets": "1-3"
+        }
+  ]
+}
+temp2={
+  "outbounds": 
+  [
+
+
+            
+        {
+            "type": "wireguard",
+            "server": "",
+            "server_port": 0,
+            "local_address": [
+                "172.16.0.2/32",
+                ""
+            ],
+            "private_key": "",
+            "peer_public_key": "",
+            "reserved": [],
+            "mtu": 1300,
+            "workers": 2,
+            "detour": "",
+            "tag": ""
+        }
+  ]
+}
 
 
 
@@ -255,32 +304,30 @@ def toSingBox2(tag, clean_ip, detour):
 
 
     data = bind_keys()
-    wg = temp["outbounds"][0]
+    wg = temphi["outbounds"][0]
     wg['private_key']=data[1]
     wg['peer_public_key']=data[3]
     wg['reserved']=data[2]
     wg['local_address'][1]=data[0]
-    wg['server'] = clean_ip.split("]")[0]+"]"
-    wg['server_port'] = int(clean_ip[::-1].split(":")[0][::-1])
+    wg['server'] = clean_ip.split(':')[0]
+    wg['server_port'] = int(clean_ip.split(':')[1])
     wg['mtu'] = 1300
     wg['workers'] = 2
     wg['detour'] = detour
     wg['tag'] = tag
     return wg
-
 def toSingBox22(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
 
     data = bind_keys()
-    wg = temp2["outbounds"][0]
+    wg = temp2hi["outbounds"][0]
     wg['private_key']=data[1]
     wg['peer_public_key']=data[3]
     wg['reserved']=data[2]
     wg['local_address'][1]=data[0]
-    
-    wg['server'] = clean_ip.split("]")[0]+"]"
-    wg['server_port'] = int(clean_ip[::-1].split(":")[0][::-1])
+    wg['server'] = clean_ip.split(':')[0]
+    wg['server_port'] = int(clean_ip.split(':')[1])
     wg['mtu'] = 1300
     wg['workers'] = 2
     wg['detour'] = detour
@@ -319,7 +366,7 @@ def export_SingBox2(t_ips, arch):
     wow_wg = toSingBox22('WARP-WOW', t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(4, wow_wg)  
 
-    with open('sing-boxv6.json', 'w') as f:
+    with open('sing-box-hiddify.json', 'w') as f:
         f.write(json.dumps(data, indent=4))
 
 
