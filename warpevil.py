@@ -185,6 +185,23 @@ def export_bestIPS(path):
             f.write(f"{ip}\n")
 
     return Bestip
+def export_bestIPS(path):
+    Bestip = []
+
+    with open(path, 'r') as csv_file:
+        next(csv_file)
+        c = 0
+        for line in csv_file:
+            Bestip.append(line)
+            c += 1
+            if c == 2:
+                break
+
+    with open('Bestip.txt', 'w') as f:
+        for ip in Bestip:
+            f.write(f"{ip}\n")
+
+    return Bestip
 
 
 def export_Hiddify(t_ips, f_ips):
@@ -296,7 +313,7 @@ def main(script_dir):
     top_ips = export_bestIPS(result_path)
     export_Hiddify(t_ips=top_ips, f_ips=result_path)
     export_SingBox(t_ips=top_ips, arch=arch)
-    top_ips = export_bestIPS("edge/assets/result.csv")
+    top_ips = export_bestIPS2("edge/assets/result.csv")
 
     export_SingBox2(t_ips=top_ips, arch=arch)
     os.remove("result.csv")
