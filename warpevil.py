@@ -189,9 +189,9 @@ def export_bestIPS2(path):
     Bestip = []
 
     with open(path, 'r') as csv_file:
-        csv.readlines()
+        csv_file2=csv_file.readlines()
         c = 0
-        for line in csv_file:
+        for line in csv_file2:
             Bestip.append(line)
             c += 1
             if c == 2:
