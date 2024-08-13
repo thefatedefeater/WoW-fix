@@ -263,7 +263,7 @@ def export_SingBox(t_ips, arch):
 
     main_wg = toSingBox('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(1, main_wg)
-    wow_wg = toSingBox2('WARP-WOW', t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox('WARP-WOW', t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(2, wow_wg)
 
     with open('sing-box.json', 'w') as f:
@@ -279,7 +279,7 @@ def export_SingBox2(t_ips, arch):
     subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
     os.chmod("warp-go", 0o755)
 
-    main_wg = toSingBox('WARP-MAIN', t_ips[0], "direct")
+    main_wg = toSingBox2('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(3, main_wg)
     wow_wg = toSingBox2('WARP-WOW', t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(4, wow_wg)
