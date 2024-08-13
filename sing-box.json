@@ -84,27 +84,19 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "direct",
-            "type": "direct"
-        },
-        {
-            "tag": "block",
-            "type": "block"
-        },
-        {
             "type": "wireguard",
-            "server": "[2606",
-            "server_port": 4700,
+            "server": "188.114.96.135",
+            "server_port": 1014,
             "local_address": [
                 "172.16.0.2/32",
                 "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
             ],
-            "private_key": "+EhG0rl5ybULke7BVUbRpu6nbZg6zyfVZPgwrFKe200=",
+            "private_key": "2FYRwhmOCozYAMjfxnbTvWRBphumfXkbDVSHrhWxzU0=",
             "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
             "reserved": [
-                101,
-                191,
-                40
+                176,
+                156,
+                95
             ],
             "mtu": 1300,
             "workers": 2,
@@ -117,24 +109,32 @@
         },
         {
             "type": "wireguard",
-            "server": "[2606:4700:d1::4181:8161:f7ea:5dc2]",
-            "server_port": "864",
+            "server": "188.114.98.147:4500]",
+            "server_port": "4500",
             "local_address": [
                 "172.16.0.2/32",
                 "2606:4700:110:846c:e510:bfa1:ea9f:5247/128"
             ],
-            "private_key": "oAIQtxlvF2M8wdZIZ3RipesiCiqa1aN93NZ7ilwDglg=",
+            "private_key": "iPZosX5YghCbxxZDPk2ZYYU4BlbUJHzuEBX2rpl1mkE=",
             "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
             "reserved": [
-                188,
-                39,
-                150
+                193,
+                81,
+                3
             ],
             "mtu": 1300,
             "workers": 2,
             "detour": "WARP-MAIN",
             "tag": "WARP-WOW",
             "fake_packets_mode": "m4"
+        },
+        {
+            "tag": "direct",
+            "type": "direct"
+        },
+        {
+            "tag": "block",
+            "type": "block"
         },
         {
             "type": "direct",
