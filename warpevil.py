@@ -216,7 +216,7 @@ def export_Hiddify(t_ips, f_ips):
         op.write(title + update_interval + sub_info + profile_web + last_modified + config_prefix)
 
 
-def toSingBox(tag, clean_ip, detour):
+def toSingBox1(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
 
@@ -234,6 +234,24 @@ def toSingBox(tag, clean_ip, detour):
     wg['tag'] = tag
     return wg
 def toSingBox2(tag, clean_ip, detour):
+    print("Generating Warp Conf")
+
+
+    data = bind_keys()
+    wg = temp["outbounds"][0]
+    wg['private_key']=data[1]
+    wg['peer_public_key']=data[3]
+    wg['reserved']=data[2]
+    wg['local_address'][1]=data[0]
+    wg['server'] = clean_ip.split("]")[0]+"]"
+    wg['server_port'] = clean_ip[::-1].split(":")[0][::-1]
+    wg['mtu'] = 1300
+    wg['workers'] = 2
+    wg['detour'] = detour
+    wg['tag'] = tag
+    return wg
+
+def toSingBox22(tag, clean_ip, detour):
     print("Generating Warp Conf")
 
 
@@ -261,9 +279,9 @@ def export_SingBox(t_ips, arch):
     subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
     os.chmod("warp-go", 0o755)
 
-    main_wg = toSingBox('WARP-MAIN', t_ips[0], "direct")
+    main_wg = toSingBox1('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(1, main_wg)
-    wow_wg = toSingBox('WARP-WOW', t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox1('WARP-WOW', t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(2, wow_wg)
 
     with open('sing-box.json', 'w') as f:
@@ -281,7 +299,7 @@ def export_SingBox2(t_ips, arch):
 
     main_wg = toSingBox2('WARP-MAIN', t_ips[0], "direct")
     data["outbounds"].insert(3, main_wg)
-    wow_wg = toSingBox2('WARP-WOW', t_ips[1], "WARP-MAIN")
+    wow_wg = toSingBox22('WARP-WOW', t_ips[1], "WARP-MAIN")
     data["outbounds"].insert(4, wow_wg)  
 
     with open('sing-boxv6.json', 'w') as f:
