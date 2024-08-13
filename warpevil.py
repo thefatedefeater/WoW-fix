@@ -243,8 +243,8 @@ def toSingBox2(tag, clean_ip, detour):
     wg['peer_public_key']=data[3]
     wg['reserved']=data[2]
     wg['local_address'][1]=data[0]
-    wg['server'] = clean_ip.split(':')[0]
-    wg['server_port'] = int(clean_ip.split(':')[1])
+    wg['server'] = clean_ip.split(']:')[0]
+    wg['server_port'] = int(clean_ip.split(']:')[1])
     wg['mtu'] = 1300
     wg['workers'] = 2
     wg['detour'] = detour
