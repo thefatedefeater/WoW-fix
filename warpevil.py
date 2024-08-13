@@ -185,7 +185,7 @@ def export_bestIPS(path):
             f.write(f"{ip}\n")
 
     return Bestip
-def export_bestIPS(path):
+def export_bestIPS2(path):
     Bestip = []
 
     with open(path, 'r') as csv_file:
