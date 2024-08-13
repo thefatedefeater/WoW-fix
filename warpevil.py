@@ -197,11 +197,7 @@ def export_bestIPS2(path):
             if c == 2:
                 break
 
-    with open('Bestip.txt', 'w') as f:
-        for ip in Bestip:
-            f.write(f"{ip}\n")
-
-    return Bestip
+    print( Bestip),exit()
 
 
 def export_Hiddify(t_ips, f_ips):
