@@ -61,9 +61,6 @@ temp2hi={
 temp={
   "outbounds": 
   [
-
-
-            
         {
             "type": "wireguard",
             "server": "",
@@ -75,7 +72,7 @@ temp={
             "private_key": "",
             "peer_public_key": "",
             "reserved": [],
-            "mtu": 1300,
+            "mtu": 1330,
             "workers": 2,
             "detour": "",
             "tag": ""
@@ -85,9 +82,6 @@ temp={
 temp2={
   "outbounds": 
   [
-
-
-            
         {
             "type": "wireguard",
             "server": "",
@@ -99,7 +93,7 @@ temp2={
             "private_key": "",
             "peer_public_key": "",
             "reserved": [],
-            "mtu": 1300,
+            "mtu": 1330,
             "workers": 2,
             "detour": "",
             "tag": ""
