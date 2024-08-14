@@ -251,7 +251,7 @@ def export_Hiddify(t_ips, f_ips):
         'utf-8') + "\n"
     update_interval = "//profile-update-interval: 1\n"
     sub_info = "//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531\n"
-    profile_web = "//profile-web-page-url: https://github.com/darknessm427\n"
+    profile_web = "//profile-web-page-url: https://github.com/arshaicomplus\n"
     last_modified = "//last update on: " + formatted_time + "\n"
 
     with open('warp.json', 'w') as op:
