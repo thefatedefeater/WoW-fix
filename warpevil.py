@@ -383,7 +383,7 @@ def main(script_dir):
 
     result_path = os.path.join(script_dir, 'result.csv')
     top_ips = export_bestIPS(result_path)
-    export_Hiddify(t_ips=top_ips, f_ips=result_path)
+
     export_SingBox(t_ips=top_ips, arch=arch)
     export_SingBox2(t_ips=top_ips, arch=arch)
     top_ips2 = export_bestIPS2("edge/assets/result.csv")
