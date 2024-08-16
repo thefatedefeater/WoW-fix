@@ -6,7 +6,7 @@
     $warp = "//profile-title: base64:44CY4oC0yrfhtYPKs+G1luKAt+OAmfCThILwk4aD\n";
     $warp .= "//profile-update-interval: 1\n";
     $warp .= "//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0\n";
-    $warp .= "//profile-web-page-url: https://github.com/mansor427\n\n";
+    $warp .= "//profile-web-page-url: https://github.com/arshiacomplus\n\n";
     $warp .= "warp://auto#mansor427🇮🇷 &&detour=warp://auto#@arshiacomplus🇩🇪";
     $warp .= "\n";
     $warp .= "warp://@auto/?ifp=5-10#🇮🇷𓄂𓆃 &&detour=warp://@auto/?ifp=5-10#🇩🇪@arshiacomplus";
