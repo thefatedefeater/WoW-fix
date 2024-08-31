@@ -778,6 +778,7 @@ def export_SingBox(t_ips, arch):
         f.write(json.dumps(data, indent=4))
 
 def export_Xray(t_ips, arch):
+    global WoW_v2
     with open('edge/assets/singbox-template.json', 'r') as f:
         data = json.load(f)
 
