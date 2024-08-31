@@ -104,7 +104,7 @@ temp2={
 }
 
 
-WoW_v2=    {
+WoW_v2=    [{
         "remarks": "Tel= arshiacomplus - WoW",
         "log": {
             "loglevel": "warning"
@@ -499,7 +499,7 @@ WoW_v2=    {
             ]
         },
         "stats": {}
-}
+}]
 WoW_v2=json.dumps(WoW_v2,indent=4)
     
 def byte_to_base64(myb):
