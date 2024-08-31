@@ -789,7 +789,7 @@ def export_Xray(t_ips, arch):
     toxray1(t_ips[0])
     
     toxray11( t_ips[1])
-    WoW_v2=json.dumps(WoW_v2,indent=4)
+    
     
     data=WoW_v2
     with open('Xray-WoW.json', 'w') as f:
