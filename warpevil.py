@@ -731,7 +731,7 @@ def toxray1( clean_ip):
 
 
     data = bind_keys()
-   
+    print(data)
     WoW_v2[0]["outbounds"][0]["settings"]['secretKey']=data[1]
     WoW_v2[0]["outbounds"][0]["settings"]["peers"][0]['publicKey']=data[3]
     WoW_v2[0]["outbounds"][0]["settings"]['reserved']=data[2]
@@ -744,7 +744,7 @@ def toxray1( clean_ip):
     WoW_v2[1]["outbounds"][0]["settings"]['reserved']=data[2]
     WoW_v2[1]["outbounds"][0]["settings"]['address'][1]=data[0]
     WoW_v2[1]["outbounds"][0]["settings"]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+":"+clean_ip.split(':')[1]
-    WoW_v2[1]["outbounds"][0]["settings"]['mtu'] = 1300
+    WoW_v2[1]["outbounds"][0]["settings"]['mtu'] =1300
     WoW_v2=WoW_v2
 def toxray11(clean_ip):
     global WoW_v2
