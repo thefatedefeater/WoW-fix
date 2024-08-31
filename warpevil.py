@@ -1,3 +1,5 @@
+import json 
+true=True
 import platform, subprocess, os, datetime, base64, json
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
@@ -102,7 +104,403 @@ temp2={
 }
 
 
-
+WoW_v2=    {
+        "remarks": "Tel= arshiacomplus - WoW",
+        "log": {
+            "loglevel": "warning"
+        },
+        "dns": {
+            "hosts": {
+                "geosite:category-ads-all": "127.0.0.1",
+                "geosite:category-ads-ir": "127.0.0.1"
+            },
+            "servers": [
+                "https://94.140.14.14/dns-query",
+                {
+                    "address": "8.8.8.8",
+                    "domains": [
+                        "geosite:category-ir",
+                        "domain:.ir"
+                    ],
+                    "expectIPs": [
+                        "geoip:ir"
+                    ],
+                    "port": 53
+                }
+            ],
+            "tag": "dns"
+        },
+        "inbounds": [
+            {
+                "port": 10808,
+                "protocol": "socks",
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "userLevel": 8
+                },
+                "sniffing": {
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "enabled": true,
+                    "routeOnly": true
+                },
+                "tag": "socks-in"
+            },
+            {
+                "port": 10809,
+                "protocol": "http",
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "userLevel": 8
+                },
+                "sniffing": {
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "enabled": true,
+                    "routeOnly": true
+                },
+                "tag": "http-in"
+            },
+            {
+                "listen": "127.0.0.1",
+                "port": 10853,
+                "protocol": "dokodemo-door",
+                "settings": {
+                    "address": "1.1.1.1",
+                    "network": "tcp,udp",
+                    "port": 53
+                },
+                "tag": "dns-in"
+            }
+        ],
+        "outbounds": [
+            {
+                "protocol": "wireguard",
+                "settings": {
+                    "address": [
+                        "172.16.0.2/32",
+                        ""
+                    ],
+                    "mtu": 1280,
+                    "peers": [
+                        {
+                            "endpoint": "",
+                            "publicKey": ""
+                        }
+                    ],
+                    "reserved":0 ,
+                    "secretKey": "",
+                    "keepAlive": 10,
+                    "wnoise": "quic",
+                    "wnoisecount": "10-15",
+                    "wpayloadsize": "1-8",
+                    "wnoisedelay": "1-3"
+                },
+                "streamSettings": {
+                    "sockopt": {
+                        "dialerProxy": "warp-ir"
+                    }
+                },
+                "tag": "warp-out"
+            },
+            {
+                "protocol": "wireguard",
+                "settings": {
+                    "address": [
+                        "172.16.0.2/32",
+                        ""
+                    ],
+                    "mtu": 1280,
+                    "peers": [
+                        {
+                            "endpoint": "162.159.192.115:864",
+                            "publicKey": ""
+                        }
+                    ],
+                    "reserved": 0,
+                    "secretKey": "",
+                    "keepAlive": 10,
+                    "wnoise": "quic",
+                    "wnoisecount": "10-15",
+                    "wpayloadsize": "1-8",
+                    "wnoisedelay": "1-3"
+                },
+                "tag": "warp-ir"
+            },
+            {
+                "protocol": "dns",
+                "tag": "dns-out"
+            },
+            {
+                "protocol": "freedom",
+                "settings": {},
+                "tag": "direct"
+            },
+            {
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                },
+                "tag": "block"
+            }
+        ],
+        "policy": {
+            "levels": {
+                "8": {
+                    "connIdle": 300,
+                    "downlinkOnly": 1,
+                    "handshake": 4,
+                    "uplinkOnly": 1
+                }
+            },
+            "system": {
+                "statsOutboundUplink": true,
+                "statsOutboundDownlink": true
+            }
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+                {
+                    "inboundTag": [
+                        "dns-in"
+                    ],
+                    "outboundTag": "dns-out",
+                    "type": "field"
+                },
+                {
+                    "ip": [
+                        "8.8.8.8"
+                    ],
+                    "outboundTag": "direct",
+                    "port": "53",
+                    "type": "field"
+                },
+                {
+                    "domain": [
+                        "geosite:category-ir",
+                        "domain:.ir"
+                    ],
+                    "outboundTag": "direct",
+                    "type": "field"
+                },
+                {
+                    "ip": [
+                        "geoip:ir",
+                        "geoip:private"
+                    ],
+                    "outboundTag": "direct",
+                    "type": "field"
+                },
+                {
+                    "domain": [
+                        "geosite:category-ads-all",
+                        "geosite:category-ads-ir",
+                    ],
+                    "outboundTag": "block",
+                    "type": "field"
+                },
+                {
+                    "outboundTag": "warp-out",
+                    "type": "field",
+                    "network": "tcp,udp"
+                }
+            ]
+        },
+        "stats": {}
+    },
+{
+        "remarks": "Tel= arshiacomplus - Warp",
+        "log": {
+            "loglevel": "warning"
+        },
+        "dns": {
+            "hosts": {
+                "geosite:category-ads-all": "127.0.0.1",
+                "geosite:category-ads-ir": "127.0.0.1"
+            },
+            "servers": [
+                "https://94.140.14.14/dns-query",
+                {
+                    "address": "8.8.8.8",
+                    "domains": [
+                        "geosite:category-ir",
+                        "domain:.ir"
+                    ],
+                    "expectIPs": [
+                        "geoip:ir"
+                    ],
+                    "port": 53
+                }
+            ],
+            "tag": "dns"
+        },
+        "inbounds": [
+            {
+                "port": 10808,
+                "protocol": "socks",
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "userLevel": 8
+                },
+                "sniffing": {
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "enabled": true,
+                    "routeOnly": true
+                },
+                "tag": "socks-in"
+            },
+            {
+                "port": 10809,
+                "protocol": "http",
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "userLevel": 8
+                },
+                "sniffing": {
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "enabled": true,
+                    "routeOnly": true
+                },
+                "tag": "http-in"
+            },
+            {
+                "listen": "127.0.0.1",
+                "port": 10853,
+                "protocol": "dokodemo-door",
+                "settings": {
+                    "address": "1.1.1.1",
+                    "network": "tcp,udp",
+                    "port": 53
+                },
+                "tag": "dns-in"
+            }
+        ],
+        "outbounds": [
+            {
+                "protocol": "wireguard",
+                "settings": {
+                    "address": [
+                        "172.16.0.2/32",
+                        ""
+                    ],
+                    "mtu": 1280,
+                    "peers": [
+                        {
+                            "endpoint": ":}",
+                            "publicKey": ""
+                        }
+                    ],
+                    "reserved": 0,
+                    "secretKey": "",
+                    "keepAlive": 10,
+                    "wnoise": "quic",
+                    "wnoisecount": "10-15",
+                    "wpayloadsize": "1-8",
+                    "wnoisedelay": "1-3"
+                },
+                "tag": "warp"
+            },
+            {
+                "protocol": "dns",
+                "tag": "dns-out"
+            },
+            {
+                "protocol": "freedom",
+                "settings": {},
+                "tag": "direct"
+            },
+            {
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                },
+                "tag": "block"
+            }
+        ],
+        "policy": {
+            "levels": {
+                "8": {
+                    "connIdle": 300,
+                    "downlinkOnly": 1,
+                    "handshake": 4,
+                    "uplinkOnly": 1
+                }
+            },
+            "system": {
+                "statsOutboundUplink": true,
+                "statsOutboundDownlink": true
+            }
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+                {
+                    "inboundTag": [
+                        "dns-in"
+                    ],
+                    "outboundTag": "dns-out",
+                    "type": "field"
+                },
+                {
+                    "ip": [
+                        "8.8.8.8"
+                    ],
+                    "outboundTag": "direct",
+                    "port": "53",
+                    "type": "field"
+                },
+                {
+                    "domain": [
+                        "geosite:category-ir",
+                        "domain:.ir"
+                    ],
+                    "outboundTag": "direct",
+                    "type": "field"
+                },
+                {
+                    "ip": [
+                        "geoip:ir"
+                    ],
+                    "outboundTag": "direct",
+                    "type": "field"
+                },
+                {
+                    "domain": [
+                        "geosite:category-ads-all",
+                        "geosite:category-ads-ir"
+                    ],
+                    "outboundTag": "block",
+                    "type": "field"
+                },
+                {
+                    "outboundTag": "warp",
+                    "type": "field",
+                    "network": "tcp,udp"
+                }
+            ]
+        },
+        "stats": {}
+}
+WoW_v2=json.dumps(WoW_v2,indent=4)
     
 def byte_to_base64(myb):
     return base64.b64encode(myb).decode('utf-8')
@@ -327,6 +725,41 @@ def toSingBox22(tag, clean_ip, detour):
     wg['tag'] = tag
     return wg
 
+def toxray1( clean_ip):
+    global WoW_v2
+    print("Generating Warp Conf")
+
+
+    data = bind_keys()
+    wg=WoW_v2
+    wg[0]["outbounds"][0]['secretKey']=data[1]
+    wg[0]["outbounds"][0]["peers"][0]['publicKey']=data[3]
+    wg[0]["outbounds"][0]['reserved']=data[2]
+    wg[0]["outbounds"][0]['address'][1]=data[0]
+    wg[0]["outbounds"][0]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+clean_ip.split(':')[1]
+    wg[0]["outbounds"][0]['mtu'] = 1300
+    
+    wg[1]["outbounds"][0]['secretKey']=data[1]
+    wg[1]["outbounds"][0]["peers"][0]['publicKey']=data[3]
+    wg[1]["outbounds"][0]['reserved']=data[2]
+    wg[1]["outbounds"][0]['address'][1]=data[0]
+    wg[1]["outbounds"][0]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+clean_ip.split(':')[1]
+    wg[1]["outbounds"][0]['mtu'] = 1300
+    WoW_v2=wg
+def toxray11(clean_ip):
+    global WoW_v2
+    print("Generating Warp Conf")
+
+
+    data = bind_keys()
+    wg=WoW_v2
+    wg[0]["outbounds"][1]['secretKey']=data[1]
+    wg[0]["outbounds"][1]["peers"][0]['publicKey']=data[3]
+    wg[0]["outbounds"][1]['reserved']=data[2]
+    wg[0]["outbounds"][1]['address'][1]=data[0]
+    wg[0]["outbounds"][1]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+clean_ip.split(':')[1]
+    wg[0]["outbounds"][1]['mtu'] = 1300
+    WoW_v2=wg
 
 def export_SingBox(t_ips, arch):
     with open('edge/assets/singbox-template.json', 'r') as f:
@@ -344,7 +777,21 @@ def export_SingBox(t_ips, arch):
     with open('sing-box.json', 'w') as f:
         f.write(json.dumps(data, indent=4))
 
+def export_Xray(t_ips, arch):
+    with open('edge/assets/singbox-template.json', 'r') as f:
+        data = json.load(f)
 
+    warp_go_url = f"https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-go/warp-go-latest-linux-{arch}"
+    subprocess.run(["wget", warp_go_url, "-O", "warp-go"])
+    os.chmod("warp-go", 0o755)
+
+    toxray1(t_ips[0])
+    
+    toxray11( t_ips[1])
+    
+    data=WoW_v2
+    with open('Xray-WoW.json', 'w') as f:
+        f.write(json.dumps(data, indent=4))
     os.remove("warp-go")
 def export_SingBox2(t_ips, arch):
     with open('edge/assets/singbox-template.json', 'r') as f:
@@ -386,6 +833,7 @@ def main(script_dir):
 
     export_SingBox(t_ips=top_ips, arch=arch)
     export_SingBox2(t_ips=top_ips, arch=arch)
+    export_Xray(t_ips=top_ips, arch=arch)
    
     os.remove("result.csv")
     os.remove("warp")
@@ -394,3 +842,7 @@ def main(script_dir):
 if __name__ == '__main__':
     script_directory = os.path.dirname(__file__)
     main(script_directory)
+
+
+
+print(str(WoW_v2))
