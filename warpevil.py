@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
 import requests
    
-    
+   
 temphi={
   "outbounds": 
   [
@@ -732,19 +732,19 @@ def toxray1( clean_ip):
 
     data = bind_keys()
    
-    WoW_v2[0]["outbounds"][0]['secretKey']=data[1]
-    WoW_v2[0]["outbounds"][0]["peers"][0]['publicKey']=data[3]
-    WoW_v2[0]["outbounds"][0]['reserved']=data[2]
-    WoW_v2[0]["outbounds"][0]['address'][1]=data[0]
-    WoW_v2[0]["outbounds"][0]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+clean_ip.split(':')[1]
-    WoW_v2[0]["outbounds"][0]['mtu'] = 1300
+    WoW_v2[0]["outbounds"][0]["settings"]['secretKey']=data[1]
+    WoW_v2[0]["outbounds"][0]["settings"]["peers"][0]['publicKey']=data[3]
+    WoW_v2[0]["outbounds"][0]["settings"]['reserved']=data[2]
+    WoW_v2[0]["outbounds"][0]["settings"]['address'][1]=data[0]
+    WoW_v2[0]["outbounds"][0]["settings"]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+":"+clean_ip.split(':')[1]
+    WoW_v2[0]["outbounds"][0]["settings"]['mtu'] = 1300
     
-    WoW_v2[1]["outbounds"][0]['secretKey']=data[1]
-    WoW_v2[1]["outbounds"][0]["peers"][0]['publicKey']=data[3]
-    WoW_v2[1]["outbounds"][0]['reserved']=data[2]
-    WoW_v2[1]["outbounds"][0]['address'][1]=data[0]
-    WoW_v2[1]["outbounds"][0]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+clean_ip.split(':')[1]
-    WoW_v2[1]["outbounds"][0]['mtu'] = 1300
+    WoW_v2[1]["outbounds"][0]["settings"]['secretKey']=data[1]
+    WoW_v2[1]["outbounds"][0]["settings"]["peers"][0]['publicKey']=data[3]
+    WoW_v2[1]["outbounds"][0]["settings"]['reserved']=data[2]
+    WoW_v2[1]["outbounds"][0]["settings"]['address'][1]=data[0]
+    WoW_v2[1]["outbounds"][0]["settings"]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+":"+clean_ip.split(':')[1]
+    WoW_v2[1]["outbounds"][0]["settings"]['mtu'] = 1300
     WoW_v2=WoW_v2
 def toxray11(clean_ip):
     global WoW_v2
@@ -753,12 +753,12 @@ def toxray11(clean_ip):
 
     data = bind_keys()
     WoW_v2=WoW_v2
-    WoW_v2[0]["outbounds"][1]['secretKey']=data[1]
-    WoW_v2[0]["outbounds"][1]["peers"][0]['publicKey']=data[3]
-    WoW_v2[0]["outbounds"][1]['reserved']=data[2]
-    WoW_v2[0]["outbounds"][1]['address'][1]=data[0]
-    WoW_v2[0]["outbounds"][1]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+clean_ip.split(':')[1]
-    WoW_v2[0]["outbounds"][1]['mtu'] = 1300
+    WoW_v2[0]["outbounds"][1]["settings"]['secretKey']=data[1]
+    WoW_v2[0]["outbounds"][1]["settings"]["peers"][0]['publicKey']=data[3]
+    WoW_v2[0]["outbounds"][1]["settings"]['reserved']=data[2]
+    WoW_v2[0]["outbounds"][1]["settings"]['address'][1]=data[0]
+    WoW_v2[0]["outbounds"][1]["settings"]["peers"][0]['endpoint'] = clean_ip.split(':')[0]+":"+clean_ip.split(':')[1]
+    WoW_v2[0]["outbounds"][1]["settings"]['mtu'] = 1300
     WoW_v2=WoW_v2
 
 def export_SingBox(t_ips, arch):
