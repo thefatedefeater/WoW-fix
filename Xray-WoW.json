@@ -85,16 +85,16 @@
                     "mtu": 1300,
                     "peers": [
                         {
-                            "endpoint": "188.114.97.115:1010",
+                            "endpoint": "188.114.97.3:1180",
                             "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
                         }
                     ],
                     "reserved": [
-                        175,
-                        150,
-                        12
+                        92,
+                        15,
+                        111
                     ],
-                    "secretKey": "6IuGA0gV/hb1bs0S9I1TfuFsm6rNsU2j1VoIFKsNkW4=",
+                    "secretKey": "yNFUUbfsSRzdqN/isj94KLjDFPlZ3DmJckbSlm9VM2E=",
                     "keepAlive": 10,
                     "wnoise": "quic",
                     "wnoisecount": "10-15",
@@ -118,16 +118,16 @@
                     "mtu": 1300,
                     "peers": [
                         {
-                            "endpoint": "162.159.195.52:854",
+                            "endpoint": "162.159.195.49:3854",
                             "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
                         }
                     ],
                     "reserved": [
-                        58,
-                        130,
-                        44
+                        211,
+                        116,
+                        120
                     ],
-                    "secretKey": "mKc5fraf4eW6t8qol7F67LOQni5U9iiKDXJz2gyYQks=",
+                    "secretKey": "mDaUXqFnGoLew/E6fMEdI+x5497hOKpTbPjMcPlOOm4=",
                     "keepAlive": 10,
                     "wnoise": "quic",
                     "wnoisecount": "10-15",
@@ -306,16 +306,16 @@
                     "mtu": 1300,
                     "peers": [
                         {
-                            "endpoint": "188.114.97.115:1010",
+                            "endpoint": "188.114.97.3:1180",
                             "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
                         }
                     ],
                     "reserved": [
-                        175,
-                        150,
-                        12
+                        92,
+                        15,
+                        111
                     ],
-                    "secretKey": "6IuGA0gV/hb1bs0S9I1TfuFsm6rNsU2j1VoIFKsNkW4=",
+                    "secretKey": "yNFUUbfsSRzdqN/isj94KLjDFPlZ3DmJckbSlm9VM2E=",
                     "keepAlive": 10,
                     "wnoise": "quic",
                     "wnoisecount": "10-15",
